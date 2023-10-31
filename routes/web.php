@@ -36,7 +36,7 @@ Route::group(['prefix' => 'admin'], function() {
 
         Route::get('/cateigories/create', [CategoryController::class, 'create'])->name('categories.create');
         Route::post('/cateigories/store', [CategoryController::class, 'store'])->name('categories.store');
-        Route::post('/cateigories/list', [CategoryController::class, 'store'])->name('categories.list');
+        Route::get('/cateigories/list', [CategoryController::class, 'index'])->name('categories.list');
 
 
         Route::get('/getSlug', function(Request $request){
