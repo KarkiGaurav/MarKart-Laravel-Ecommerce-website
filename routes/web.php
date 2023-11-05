@@ -3,6 +3,7 @@
 use App\Http\Controllers\Admin\AdminLoginController;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\HomeController;
+use App\Http\Controllers\admin\TempImageController;
 use GuzzleHttp\Middleware;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Http\Request;
@@ -37,6 +38,9 @@ Route::group(['prefix' => 'admin'], function() {
         Route::get('/cateigories/create', [CategoryController::class, 'create'])->name('categories.create');
         Route::post('/cateigories/store', [CategoryController::class, 'store'])->name('categories.store');
         Route::get('/cateigories/list', [CategoryController::class, 'index'])->name('categories.list');
+        Route::post('/upload-temp-image', [TempImageController::class, 'create'])->name('temp-images.create');
+        Route::get('/cateigories/{categoryID}/edit', [CategoryController::class, 'edit'])->name('categories.edit');
+        Route::delete('/cateigories/delete', [CategoryController::class, 'delete'])->name('categories.delete');
 
 
         Route::get('/getSlug', function(Request $request){
